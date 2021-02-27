@@ -7,6 +7,7 @@
 #include <glm/mat4x4.hpp>
 
 #include <iostream>
+#include "version.h"
 #include "config.h"
 
 int main()

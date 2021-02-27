@@ -3,7 +3,9 @@ include(FetchContent)
 #
 # Find GLM library
 #
-find_package(glm CONFIG QUIET)
+
+find_package(glm CONFIG)
+
 if(NOT glm_FOUND)
     unset(glm_DIR CACHE)
 
@@ -14,12 +16,27 @@ if(NOT glm_FOUND)
     FetchContent_MakeAvailable(glm)
 endif()
 
-include(FindVulkan)
-find_package(Vulkan QUIET REQUIRED)
+#
+# Find Vulkan library
+#
 
-find_package(glfw CONFIG QUIET)
-if(NOT glfw_FOUND)
-    unset(glfw_DIR CACHE)
+include(FindVulkan)
+find_package(Vulkan REQUIRED)
+
+#
+# Find GLFW library
+#
+
+if(UNIX)
+    set(GLFW_NAME glfw3)
+else()
+    set(GLFW_NAME glfw)
+endif()
+
+find_package(${GLFW_NAME} CONFIG)
+
+if(NOT ${GLFW_NAME}_FOUND)
+    unset(${GLFW_NAME}_DIR CACHE)
 
     FetchContent_Declare(glfw
         GIT_REPOSITORY  https://github.com/glfw/glfw.git
@@ -33,7 +50,6 @@ if(NOT glfw_FOUND)
     set(GLFW_INSTALL OFF CACHE INTERNAL "Generate installation target")
 
     FetchContent_MakeAvailable(glfw)
+    target_include_directories(glfw PUBLIC ${Vulkan_INCLUDE_DIR})
+    target_link_libraries(glfw PUBLIC ${Vulkan_LIBRARY})
 endif()
-
-target_include_directories(glfw PUBLIC ${Vulkan_INCLUDE_DIR})
-target_link_libraries(glfw PUBLIC ${Vulkan_LIBRARY})

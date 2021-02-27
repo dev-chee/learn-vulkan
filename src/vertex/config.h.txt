@@ -1,0 +1,7 @@
+#pragma once
+
+#define WINDOW_TITLE "@vertex_WINDOW_TITLE@"
+#define WINDOW_WIDTH @vertex_WINDOW_WIDTH@
+#define WINDOW_HEIGHT @vertex_WINDOW_HEIGHT@
+
+#define FRAMES_IN_FLIGHT @vertex_FRAMES_IN_FLIGHT@

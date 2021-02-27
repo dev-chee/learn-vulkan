@@ -4,3 +4,4 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(window)
 add_subdirectory(triangle)
+add_subdirectory(vertex)

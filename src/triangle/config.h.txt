@@ -1,0 +1,7 @@
+#pragma once
+
+#define WINDOW_TITLE "@triangle_WINDOW_TITLE@"
+#define WINDOW_WIDTH @triangle_WINDOW_WIDTH@
+#define WINDOW_HEIGHT @triangle_WINDOW_HEIGHT@
+
+#define FRAMES_IN_FLIGHT @triangle_FRAMES_IN_FLIGHT@

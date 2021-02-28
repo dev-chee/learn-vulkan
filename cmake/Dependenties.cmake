@@ -55,3 +55,20 @@ if(NOT ${GLFW_NAME}_FOUND)
     target_include_directories(glfw PUBLIC ${Vulkan_INCLUDE_DIR})
     target_link_libraries(glfw PUBLIC ${Vulkan_LIBRARY})
 endif()
+
+#
+# Find STB-Image library
+#
+
+find_package(stb CONFIG)
+
+if(NOT stb_FOUND)
+    unset(stb_DIR CACHE)
+    message(STATUS "Building from sources")
+
+    FetchContent_Declare(stb
+        GIT_REPOSITORY  https://github.com/nothings/stb.git
+        GIT_TAG         master)
+    
+    FetchContent_MakeAvailable(stb)
+endif()

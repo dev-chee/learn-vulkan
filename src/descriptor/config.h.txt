@@ -1,0 +1,7 @@
+#pragma once
+
+#define WINDOW_TITLE "@discriptor_WINDOW_TITLE@"
+#define WINDOW_WIDTH @discriptor_WINDOW_WIDTH@
+#define WINDOW_HEIGHT @discriptor_WINDOW_HEIGHT@
+
+#define FRAMES_IN_FLIGHT @discriptor_FRAMES_IN_FLIGHT@

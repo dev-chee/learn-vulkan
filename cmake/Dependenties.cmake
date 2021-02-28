@@ -8,6 +8,7 @@ find_package(glm CONFIG)
 
 if(NOT glm_FOUND)
     unset(glm_DIR CACHE)
+    message(STATUS "Building from sources")
 
     FetchContent_Declare(glm
         GIT_REPOSITORY  https://github.com/g-truc/glm.git
@@ -37,7 +38,8 @@ find_package(${GLFW_NAME} CONFIG)
 
 if(NOT ${GLFW_NAME}_FOUND)
     unset(${GLFW_NAME}_DIR CACHE)
-
+    message(STATUS "Building from sources")
+    
     FetchContent_Declare(glfw
         GIT_REPOSITORY  https://github.com/glfw/glfw.git
         GIT_TAG         3.3.3)
